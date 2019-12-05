@@ -17,6 +17,10 @@ public:
     void Set_Validator();
     ~MainWindow();
 
+private slots:
+
+    void on_btn_Clear_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

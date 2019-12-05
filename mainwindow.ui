@@ -102,7 +102,8 @@ background-color: rgb(211, 215, 207)</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border : 2px solid rgb(237, 212, 0);</string>
+     <string notr="true">border : 2px solid rgb(237, 212, 0);
+</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

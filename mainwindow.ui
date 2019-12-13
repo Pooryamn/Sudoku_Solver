@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Sudoku Solver</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="lbl_mainborder">
@@ -1969,6 +1969,21 @@ background-color: rgb(211, 215, 207)</string>
       <height>25</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>Backtrack</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Algo2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Algo3</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="lbl_algo">
     <property name="geometry">

@@ -15,11 +15,16 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void Set_Validator();
+    void Data_to_matrix();
+    bool Check();
+    int Mat[9][9];
     ~MainWindow();
 
 private slots:
 
     void on_btn_Clear_clicked();
+
+    void on_btn_Solve_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -1,2 +1,5 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/new/imgs">
+        <file>Sudoku_icon.jpg</file>
+    </qresource>
+</RCC>

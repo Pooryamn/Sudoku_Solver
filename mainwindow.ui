@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Sudoku Solver</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/new/imgs/Sudoku_icon.jpg</normaloff>:/new/imgs/Sudoku_icon.jpg</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="lbl_mainborder">
     <property name="geometry">
@@ -2071,6 +2075,8 @@ background-color: rgb(114, 159, 207)</string>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

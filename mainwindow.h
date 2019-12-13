@@ -16,7 +16,13 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     void Set_Validator();
     void Data_to_matrix();
-    bool Check();
+    void matrix_to_data();
+    bool Check(int row,int col, int data);
+    bool CH_ROW(int row,int data);
+    bool CH_COL(int col,int data);
+    bool CH_BOX(int S_Row, int S_Col, int data);
+    bool CH_EMPTY(int &row, int &col);
+    bool Solve_backtrack();
     int Mat[9][9];
     ~MainWindow();
 

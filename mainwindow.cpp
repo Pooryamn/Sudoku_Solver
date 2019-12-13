@@ -331,9 +331,191 @@ void MainWindow::Data_to_matrix(){
 void MainWindow::on_btn_Solve_clicked()
 {
     Data_to_matrix();
+    if(ui->combo_algorithm->currentText() == "Backtrack"){
+        if(Solve_backtrack()){
+            matrix_to_data();
+        }
+    }
 
 }
 
-bool MainWindow::Check(){
+// check a data in ROW , COLUMN and Block
+bool MainWindow::Check(int row,int col, int data){
+   // if(Mat[row][col] != 0){
+       // return false;
+   // }
+    if(CH_ROW(row,data)){
+        return false;
+    }
+    if(CH_COL(col,data)){
+        return false;
+    }
+    if(CH_BOX(row - row % 3 , col - col % 3 , data)){
+        return false;
+    }
+    return true;
+}
+
+// check data is in a row or not
+bool MainWindow::CH_ROW(int row,int data){
+    for (int col = 0; col < 9; col++){
+            if (Mat[row][col] == data){
+                return true;
+            }
+    }
+    return false;
+}
+
+// check data is in a column or not
+bool MainWindow::CH_COL(int col, int data){
+    for (int row = 0; row < 9; row++){
+            if (Mat[row][col] == data){
+                return true;
+            }
+    }
+        return false;
+}
+// check data is in a box or not , S_ROW and S_COL is begin of the box
+bool MainWindow::CH_BOX(int S_Row, int S_Col, int data){
+    for (int row = 0; row < 3; row++){
+            for (int col = 0; col < 3; col++){
+                if (Mat[row + S_Row][col + S_Col] == data){
+                    return true;
+                }
+            }
+    }
+        return false;
+}
+
+bool MainWindow::Solve_backtrack(){
+    int row,col;
+
+    // find empty homes , if it is where is it ?
+    if(!CH_EMPTY(row,col)){
+        return true;
+    }
+
+    for(int data = 1 ; data <= 9 ; data++){
+        if(Check(row,col,data)){
+            Mat[row][col] = data;
+
+            if(Solve_backtrack()){
+                return true;
+            }
+            else {
+                Mat[row][col] = 0; // go back
+            }
+        }
+    }
+    return false; // cant be solve
+}
+
+bool MainWindow::CH_EMPTY(int &row, int &col){
+    for (row = 0; row < 9; row++)
+            for (col = 0; col < 9; col++)
+                if (Mat[row][col] == 0)
+                    return true;
+        return false;
+}
+
+void MainWindow::matrix_to_data(){
+    // ROW 1 :
+        ui->txt_11->setText(QString::number(Mat[0][0]));
+        ui->txt_12->setText(QString::number(Mat[0][1]));
+        ui->txt_13->setText(QString::number(Mat[0][2]));
+        ui->txt_14->setText(QString::number(Mat[0][3]));
+        ui->txt_15->setText(QString::number(Mat[0][4]));
+        ui->txt_16->setText(QString::number(Mat[0][5]));
+        ui->txt_17->setText(QString::number(Mat[0][6]));
+        ui->txt_18->setText(QString::number(Mat[0][7]));
+        ui->txt_19->setText(QString::number(Mat[0][8]));
+
+        // ROW 2 :
+        ui->txt_21->setText(QString::number(Mat[1][0]));
+        ui->txt_22->setText(QString::number(Mat[1][1]));
+        ui->txt_23->setText(QString::number(Mat[1][2]));
+        ui->txt_24->setText(QString::number(Mat[1][3]));
+        ui->txt_25->setText(QString::number(Mat[1][4]));
+        ui->txt_26->setText(QString::number(Mat[1][5]));
+        ui->txt_27->setText(QString::number(Mat[1][6]));
+        ui->txt_28->setText(QString::number(Mat[1][7]));
+        ui->txt_29->setText(QString::number(Mat[1][8]));
+
+        // ROW 3 :
+        ui->txt_31->setText(QString::number(Mat[2][0]));
+        ui->txt_32->setText(QString::number(Mat[2][1]));
+        ui->txt_33->setText(QString::number(Mat[2][2]));
+        ui->txt_34->setText(QString::number(Mat[2][3]));
+        ui->txt_35->setText(QString::number(Mat[2][4]));
+        ui->txt_36->setText(QString::number(Mat[2][5]));
+        ui->txt_37->setText(QString::number(Mat[2][6]));
+        ui->txt_38->setText(QString::number(Mat[2][7]));
+        ui->txt_39->setText(QString::number(Mat[2][8]));
+
+        // ROW 4 :
+        ui->txt_41->setText(QString::number(Mat[3][0]));
+        ui->txt_42->setText(QString::number(Mat[3][1]));
+        ui->txt_43->setText(QString::number(Mat[3][2]));
+        ui->txt_44->setText(QString::number(Mat[3][3]));
+        ui->txt_45->setText(QString::number(Mat[3][4]));
+        ui->txt_46->setText(QString::number(Mat[3][5]));
+        ui->txt_47->setText(QString::number(Mat[3][6]));
+        ui->txt_48->setText(QString::number(Mat[3][7]));
+        ui->txt_49->setText(QString::number(Mat[3][8]));
+
+        // ROW 5 :
+        ui->txt_51->setText(QString::number(Mat[4][0]));
+        ui->txt_52->setText(QString::number(Mat[4][1]));
+        ui->txt_53->setText(QString::number(Mat[4][2]));
+        ui->txt_54->setText(QString::number(Mat[4][3]));
+        ui->txt_55->setText(QString::number(Mat[4][4]));
+        ui->txt_56->setText(QString::number(Mat[4][5]));
+        ui->txt_57->setText(QString::number(Mat[4][6]));
+        ui->txt_58->setText(QString::number(Mat[4][7]));
+        ui->txt_59->setText(QString::number(Mat[4][8]));
+
+        // ROW 6 :
+        ui->txt_61->setText(QString::number(Mat[5][0]));
+        ui->txt_62->setText(QString::number(Mat[5][1]));
+        ui->txt_63->setText(QString::number(Mat[5][2]));
+        ui->txt_64->setText(QString::number(Mat[5][3]));
+        ui->txt_65->setText(QString::number(Mat[5][4]));
+        ui->txt_66->setText(QString::number(Mat[5][5]));
+        ui->txt_67->setText(QString::number(Mat[5][6]));
+        ui->txt_68->setText(QString::number(Mat[5][7]));
+        ui->txt_69->setText(QString::number(Mat[5][8]));
+
+        // ROW 7 :
+        ui->txt_71->setText(QString::number(Mat[6][0]));
+        ui->txt_72->setText(QString::number(Mat[6][1]));
+        ui->txt_73->setText(QString::number(Mat[6][2]));
+        ui->txt_74->setText(QString::number(Mat[6][3]));
+        ui->txt_75->setText(QString::number(Mat[6][4]));
+        ui->txt_76->setText(QString::number(Mat[6][5]));
+        ui->txt_77->setText(QString::number(Mat[6][6]));
+        ui->txt_78->setText(QString::number(Mat[6][7]));
+        ui->txt_79->setText(QString::number(Mat[6][8]));
+
+        // ROW 8 :
+        ui->txt_81->setText(QString::number(Mat[7][0]));
+        ui->txt_82->setText(QString::number(Mat[7][1]));
+        ui->txt_83->setText(QString::number(Mat[7][2]));
+        ui->txt_84->setText(QString::number(Mat[7][3]));
+        ui->txt_85->setText(QString::number(Mat[7][4]));
+        ui->txt_86->setText(QString::number(Mat[7][5]));
+        ui->txt_87->setText(QString::number(Mat[7][6]));
+        ui->txt_88->setText(QString::number(Mat[7][7]));
+        ui->txt_89->setText(QString::number(Mat[7][8]));
+
+        // ROW 9 :
+        ui->txt_91->setText(QString::number(Mat[8][0]));
+        ui->txt_92->setText(QString::number(Mat[8][1]));
+        ui->txt_93->setText(QString::number(Mat[8][2]));
+        ui->txt_94->setText(QString::number(Mat[8][3]));
+        ui->txt_95->setText(QString::number(Mat[8][4]));
+        ui->txt_96->setText(QString::number(Mat[8][5]));
+        ui->txt_97->setText(QString::number(Mat[8][6]));
+        ui->txt_98->setText(QString::number(Mat[8][7]));
+        ui->txt_99->setText(QString::number(Mat[8][8]));
 
 }

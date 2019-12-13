@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QDebug>
+#include <QMessageBox>
+#include <QString>
 #include <iostream>
 using namespace std;
 
@@ -331,6 +332,7 @@ void MainWindow::Data_to_matrix(){
 void MainWindow::on_btn_Solve_clicked()
 {
     Data_to_matrix();
+
     if(ui->combo_algorithm->currentText() == "Backtrack"){
         if(Solve_backtrack()){
             matrix_to_data();
@@ -341,9 +343,6 @@ void MainWindow::on_btn_Solve_clicked()
 
 // check a data in ROW , COLUMN and Block
 bool MainWindow::Check(int row,int col, int data){
-   // if(Mat[row][col] != 0){
-       // return false;
-   // }
     if(CH_ROW(row,data)){
         return false;
     }
@@ -519,3 +518,4 @@ void MainWindow::matrix_to_data(){
         ui->txt_99->setText(QString::number(Mat[8][8]));
 
 }
+

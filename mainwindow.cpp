@@ -332,7 +332,9 @@ void MainWindow::Data_to_matrix(){
 void MainWindow::on_btn_Solve_clicked()
 {
     Data_to_matrix();
-
+    if(!CH_INPUT()){
+        return;
+    }
     if(ui->combo_algorithm->currentText() == "Backtrack"){
         if(Solve_backtrack()){
             matrix_to_data();
@@ -519,3 +521,76 @@ void MainWindow::matrix_to_data(){
 
 }
 
+bool MainWindow::CH_INPUT(){
+    for (int row =0;row < 9;row++) {
+        for (int col =0;col<9;col++) {
+
+            if(Mat[row][col] == 0){
+                continue;
+            }
+            if(!CH_ROW2(row,Mat[row][col])){
+                QMessageBox::warning(this,"Input error", QString::number(Mat[row][col]) + " is used in row " + QString::number(row));
+                return false;
+            }
+
+            if(!CH_COL2(col,Mat[row][col])){
+                QMessageBox::warning(this,"Input error", QString::number(Mat[row][col]) + " is used in column " + QString::number(col));
+                return false;
+            }
+
+            if(!CH_BOX2(row - row % 3 , col - col % 3 , Mat[row][col])){
+                QMessageBox::warning(this,"Input error", QString::number(Mat[row][col]) + " is used in a same Box ");
+                return false;
+            }
+
+        }
+    }
+    return true;
+}
+
+bool MainWindow::CH_ROW2(int row, int data){
+    bool flag =false;
+    for (int col = 0; col < 9; col++){
+            if (Mat[row][col] == data){
+                if(flag == false){
+                    flag = true;
+                }
+                else{
+                    return false;
+                }
+            }
+    }
+    return true;
+}
+
+bool MainWindow::CH_COL2(int col, int data){
+    bool flag = false;
+    for (int row = 0; row < 9; row++){
+            if (Mat[row][col] == data){
+                if(flag == false){
+                    flag = true;
+                }
+                else{
+                    return false;
+                }
+            }
+    }
+        return true;
+}
+
+bool MainWindow::CH_BOX2(int S_Row, int S_Col, int data){
+    bool flag = false;
+    for (int row = 0; row < 3; row++){
+            for (int col = 0; col < 3; col++){
+                if (Mat[row + S_Row][col + S_Col] == data){
+                    if(flag == false){
+                        flag = true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+    }
+        return true;
+}

@@ -1978,16 +1978,6 @@ background-color: rgb(211, 215, 207)</string>
       <string>Backtrack</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>Algo2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Algo3</string>
-     </property>
-    </item>
    </widget>
    <widget class="QLabel" name="lbl_algo">
     <property name="geometry">

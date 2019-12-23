@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QString>
 #include <iostream>
+#include <QThread>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -11,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    index = 0;
+
     Set_Validator();
 }
 
@@ -337,7 +340,7 @@ void MainWindow::on_btn_Solve_clicked()
     }
     if(ui->combo_algorithm->currentText() == "Backtrack"){
         if(Solve_backtrack()){
-            matrix_to_data();
+            matrix_to_data(Mat);
         }
     }
 
@@ -419,105 +422,335 @@ bool MainWindow::CH_EMPTY(int &row, int &col){
         return false;
 }
 
-void MainWindow::matrix_to_data(){
-    // ROW 1 :
+void MainWindow::matrix_to_data(int Mat[9][9]){
+
+    on_btn_Clear_clicked();
+
+
+    if(Mat[0][0] != 0){
         ui->txt_11->setText(QString::number(Mat[0][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[0][1] != 0){
         ui->txt_12->setText(QString::number(Mat[0][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[0][2] != 0){
         ui->txt_13->setText(QString::number(Mat[0][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[0][3] != 0){
         ui->txt_14->setText(QString::number(Mat[0][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[0][4] != 0){
         ui->txt_15->setText(QString::number(Mat[0][4]));
-        ui->txt_16->setText(QString::number(Mat[0][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[0][5] != 0){
+         ui->txt_16->setText(QString::number(Mat[0][5]));
+         QThread::msleep(5);
+    }
+    if(Mat[0][6] != 0){
         ui->txt_17->setText(QString::number(Mat[0][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[0][7] != 0){
         ui->txt_18->setText(QString::number(Mat[0][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[0][8] != 0){
         ui->txt_19->setText(QString::number(Mat[0][8]));
-
-        // ROW 2 :
+        QThread::msleep(5);
+    }
+    if(Mat[1][0] != 0){
         ui->txt_21->setText(QString::number(Mat[1][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][1] != 0){
         ui->txt_22->setText(QString::number(Mat[1][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][2] != 0){
         ui->txt_23->setText(QString::number(Mat[1][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][3] != 0){
         ui->txt_24->setText(QString::number(Mat[1][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][4] != 0){
         ui->txt_25->setText(QString::number(Mat[1][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][5] != 0){
         ui->txt_26->setText(QString::number(Mat[1][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][6] != 0){
         ui->txt_27->setText(QString::number(Mat[1][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][7] != 0){
         ui->txt_28->setText(QString::number(Mat[1][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[1][8] != 0){
         ui->txt_29->setText(QString::number(Mat[1][8]));
-
-        // ROW 3 :
+        QThread::msleep(5);
+    }
+    if(Mat[2][0] != 0){
         ui->txt_31->setText(QString::number(Mat[2][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][1] != 0){
         ui->txt_32->setText(QString::number(Mat[2][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][2] != 0){
         ui->txt_33->setText(QString::number(Mat[2][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][3] != 0){
         ui->txt_34->setText(QString::number(Mat[2][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][4] != 0){
         ui->txt_35->setText(QString::number(Mat[2][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][5] != 0){
         ui->txt_36->setText(QString::number(Mat[2][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][6] != 0){
         ui->txt_37->setText(QString::number(Mat[2][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][7] != 0){
         ui->txt_38->setText(QString::number(Mat[2][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[2][8] != 0){
         ui->txt_39->setText(QString::number(Mat[2][8]));
-
-        // ROW 4 :
+        QThread::msleep(5);
+    }
+    if(Mat[3][0] != 0){
         ui->txt_41->setText(QString::number(Mat[3][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][1] != 0){
         ui->txt_42->setText(QString::number(Mat[3][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][2] != 0){
         ui->txt_43->setText(QString::number(Mat[3][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][3] != 0){
         ui->txt_44->setText(QString::number(Mat[3][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][4] != 0){
         ui->txt_45->setText(QString::number(Mat[3][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][5] != 0){
         ui->txt_46->setText(QString::number(Mat[3][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][6] != 0){
         ui->txt_47->setText(QString::number(Mat[3][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][7] != 0){
         ui->txt_48->setText(QString::number(Mat[3][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[3][8] != 0){
         ui->txt_49->setText(QString::number(Mat[3][8]));
-
-        // ROW 5 :
+        QThread::msleep(5);
+    }
+    if(Mat[4][0] != 0){
         ui->txt_51->setText(QString::number(Mat[4][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][1] != 0){
         ui->txt_52->setText(QString::number(Mat[4][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][2] != 0){
         ui->txt_53->setText(QString::number(Mat[4][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][3] != 0){
         ui->txt_54->setText(QString::number(Mat[4][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][4] != 0){
         ui->txt_55->setText(QString::number(Mat[4][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][5] != 0){
         ui->txt_56->setText(QString::number(Mat[4][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][6] != 0){
         ui->txt_57->setText(QString::number(Mat[4][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][7] != 0){
         ui->txt_58->setText(QString::number(Mat[4][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[4][8] != 0){
         ui->txt_59->setText(QString::number(Mat[4][8]));
-
-        // ROW 6 :
+        QThread::msleep(5);
+    }
+    if(Mat[5][0] != 0){
         ui->txt_61->setText(QString::number(Mat[5][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[5][1] != 0){
         ui->txt_62->setText(QString::number(Mat[5][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[5][2] != 0){
         ui->txt_63->setText(QString::number(Mat[5][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[5][3] != 0){
         ui->txt_64->setText(QString::number(Mat[5][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[5][4] != 0){
         ui->txt_65->setText(QString::number(Mat[5][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[5][5] != 0){
         ui->txt_66->setText(QString::number(Mat[5][5]));
-        ui->txt_67->setText(QString::number(Mat[5][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[5][6] != 0){
+         ui->txt_67->setText(QString::number(Mat[5][6]));
+         QThread::msleep(5);
+    }
+    if(Mat[5][7] != 0){
         ui->txt_68->setText(QString::number(Mat[5][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[5][8] != 0){
         ui->txt_69->setText(QString::number(Mat[5][8]));
-
-        // ROW 7 :
+        QThread::msleep(5);
+    }
+    if(Mat[6][0] != 0){
         ui->txt_71->setText(QString::number(Mat[6][0]));
-        ui->txt_72->setText(QString::number(Mat[6][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[6][1] != 0){
+         ui->txt_72->setText(QString::number(Mat[6][1]));
+         QThread::msleep(5);
+    }
+    if(Mat[6][2] != 0){
         ui->txt_73->setText(QString::number(Mat[6][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[6][3] != 0){
         ui->txt_74->setText(QString::number(Mat[6][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[6][4] != 0){
         ui->txt_75->setText(QString::number(Mat[6][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[6][5] != 0){
         ui->txt_76->setText(QString::number(Mat[6][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[6][6] != 0){
         ui->txt_77->setText(QString::number(Mat[6][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[6][7] != 0){
         ui->txt_78->setText(QString::number(Mat[6][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[6][8] != 0){
         ui->txt_79->setText(QString::number(Mat[6][8]));
-
-        // ROW 8 :
+        QThread::msleep(5);
+    }
+    if(Mat[7][0] != 0){
         ui->txt_81->setText(QString::number(Mat[7][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][1] != 0){
         ui->txt_82->setText(QString::number(Mat[7][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][2] != 0){
         ui->txt_83->setText(QString::number(Mat[7][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][3] != 0){
         ui->txt_84->setText(QString::number(Mat[7][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][4] != 0){
         ui->txt_85->setText(QString::number(Mat[7][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][5] != 0){
         ui->txt_86->setText(QString::number(Mat[7][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][6] != 0){
         ui->txt_87->setText(QString::number(Mat[7][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][7] != 0){
         ui->txt_88->setText(QString::number(Mat[7][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[7][8] != 0){
         ui->txt_89->setText(QString::number(Mat[7][8]));
-
-        // ROW 9 :
+        QThread::msleep(5);
+    }
+    if(Mat[8][0] != 0){
         ui->txt_91->setText(QString::number(Mat[8][0]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][1] != 0){
         ui->txt_92->setText(QString::number(Mat[8][1]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][2] != 0){
         ui->txt_93->setText(QString::number(Mat[8][2]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][3] != 0){
         ui->txt_94->setText(QString::number(Mat[8][3]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][4] != 0){
         ui->txt_95->setText(QString::number(Mat[8][4]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][5] != 0){
         ui->txt_96->setText(QString::number(Mat[8][5]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][6] != 0){
         ui->txt_97->setText(QString::number(Mat[8][6]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][7] != 0){
         ui->txt_98->setText(QString::number(Mat[8][7]));
+        QThread::msleep(5);
+    }
+    if(Mat[8][8] != 0){
         ui->txt_99->setText(QString::number(Mat[8][8]));
+        QThread::msleep(5);
+    }
 
 }
 
@@ -593,4 +826,13 @@ bool MainWindow::CH_BOX2(int S_Row, int S_Col, int data){
             }
     }
         return true;
+}
+
+void MainWindow::on_btn_Random_clicked()
+{
+    matrix_to_data(Sample[index]);
+    index++;
+    if(index == 11){
+        index = 0 ;
+    }
 }

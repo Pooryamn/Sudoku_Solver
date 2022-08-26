@@ -1,5 +1,7 @@
 <h2>Sudoku Solver</h2>
 
+udoku solver based on backtracking algorithm with a Qt GUI
+
 <h3> main window </h3>
 
 ![alt text](https://github.com/Pooryamn/Sudoku_Solver/blob/master/Sudoku_empty.png)
@@ -12,14 +14,4 @@
 
 ![alt text](https://github.com/Pooryamn/Sudoku_Solver/blob/master/Sudoku_solve.png)
 
-with <b>Backtrack</b> algorithms
-
-<h4>
- Programmer :: POORYA MOHAMMADI NASAB
- 
-      Email :: Poorya.m.n.b@gmail.com
-      Email :: Poorya@gmx.com
-      
-   Telegram :: @P_M_N
-   
-</h4>
+with <b style="color: red;">Backtrack</b> algorithm
